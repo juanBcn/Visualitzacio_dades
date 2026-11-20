@@ -56,4 +56,4 @@ El significat de cada columna és al diccionari de variables de `docs/PR1_selecc
 
 Les taules generades s'inclouen al repositori per facilitar l'avaluació de la pràctica. Les respostes en brut de les API no s'hi inclouen: es regeneren amb els scripts.
 
-Puntual.cat i l'informe de Renfe no indiquen llicència de reutilització. L'ús que se'n fa aquí és acadèmic i no comercial, citant-ne la font, i s'ha demanat permís a l'autor de Puntual.cat. Si algun dels titulars no n'autoritza la publicació, les taules es retiraran. Les dades d'Idescat i de l'ICGC es publiquen amb llicència oberta.
+Puntual.cat i l'informe de Renfe no indiquen llicència de reutilització. L'ús que se'n fa aquí és acadèmic i no comercial, citant-ne la font. L'autor de Puntual.cat va donar el vistiplau a l'ús de les dades de l'API el 20 de novembre de 2026. Si algun dels titulars no n'autoritza la publicació, les taules es retiraran. Les dades d'Idescat i de l'ICGC es publiquen amb llicència oberta.

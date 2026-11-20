@@ -103,7 +103,7 @@ Amb les dades descarregades n'han aparegut més. A FGC les parades en estat pend
 
 ### Llicència i ús
 
-Renfe Data i Idescat publiquen amb llicència oberta. Puntual.cat és d'accés obert i gratuït però no indica llicència de reutilització: he escrit al seu autor per demanar-li permís de reutilització i en cito la font. L'informe de Renfe és públic però tampoc indica llicència; se'n guarden només indicadors agregats per nucli i mes. Les taules generades són al repositori per facilitar l'avaluació; si algun dels titulars no ho autoritza, les retiraré. Cap de les fonts conté dades personals.
+Renfe Data i Idescat publiquen amb llicència oberta. Puntual.cat és d'accés obert i gratuït però no indica llicència de reutilització: vaig escriure al seu autor per demanar-li permís i el 20 de novembre de 2026 em va respondre donant el vistiplau a descarregar les dades de l'API, i oferint-me a més els fitxers parquet originals (un per línia, mes i tipus de dada). En cito la font a tot el document. L'informe de Renfe és públic però tampoc indica llicència; se'n guarden només indicadors agregats per nucli i mes. Les taules generades i les respostes originals de l'API són al repositori per facilitar l'avaluació; si algun dels titulars no ho autoritza, les retiraré. Cap de les fonts conté dades personals.
 
 ## 5. Originalitat i enriquiment
 
@@ -170,7 +170,7 @@ Aquesta exploració també ha servit per detectar els problemes de qualitat desc
 
 ### Procés seguit: validació de dades i refinament d'objectius
 
-Els objectius d'aquest document no són els que vaig escriure el primer dia: s'han refinat en set iteracions entre les dades i les preguntes. He seguit el cicle que proposa la guia de l'assignatura (elecció de les dades, preguntes, avaluació), que coincideix amb les etapes inicials del procés de Ben Fry (adquirir, analitzar, filtrar, explorar) i amb el flux de treball de Moritz Stefaner, en què l'exploració de les dades torna enrere i modifica els objectius.
+Els objectius d'aquest document no són els que vaig escriure el primer dia: s'han refinat en vuit iteracions entre les dades i les preguntes. He seguit el cicle que proposa la guia de l'assignatura (elecció de les dades, preguntes, avaluació), que coincideix amb les etapes inicials del procés de Ben Fry (adquirir, analitzar, filtrar, explorar) i amb el flux de treball de Moritz Stefaner, en què l'exploració de les dades torna enrere i modifica els objectius.
 
 | Iteració | Què s'ha fet | Què s'ha après | Com ha canviat el projecte |
 | --- | --- | --- | --- |
@@ -181,6 +181,7 @@ Els objectius d'aquest document no són els que vaig escriure el primer dia: s'h
 | 5. Puntualitat oficial | Recompte de trens per minuts de retard al destí final | Cal excloure els serveis amb autobús per reproduir l'informe; la bretxa amb les dades ciutadanes és petita per parada i molt gran al destí final | O5 es desdobla en `bretxa_parada` i `bretxa_desti`. Es descarta el retard mitjà oficial perquè no s'ha pogut reproduir |
 | 6. Revisió del diccionari | Comprovació que cada variable del diccionari existeix a les taules generades | Algunes variables descrites encara no eren a les dades | Columna Estat al diccionari, noms alineats amb els fitxers i ampliació dels scripts |
 | 7. Enriquiment municipal | Assignació del municipi de cada estació i descàrrega de població i renda d'Idescat | La renda s'associa amb les cancel·lacions només perquè la perifèria té menys renda; controlant la distància, l'efecte desapareix | Segona reformulació d'O2: la desigualtat és territorial, no de renda |
+| 8. Confirmació amb la font | Contacte amb l'autor de Puntual.cat per validar la interpretació de les dades i demanar-li permís de reutilització | Confirma que els valors d'`avg_scores` delimiten els trams de retard i dóna el vistiplau a l'ús de l'API; ofereix també els fitxers parquet originals | S'elimina la incertesa sobre la variable central del projecte i queda documentat el permís d'ús |
 
 Cada xifra oficial s'ha validat contra una referència independent abans d'entrar al document: els valors que mostra l'informe de Renfe per a Astúries i Rodalia de Barcelona, i les xifres de viatgers i de quota de retard publicades a la premsa.
 
@@ -281,7 +282,7 @@ La columna **Estat** indica si la variable ja és a les taules que genera `scrip
 - **Cancel·lada no vol dir retard zero.** Les parades cancel·lades, pendents i desconegudes s'exclouen del retard mitjà i es mostren a part.
 - **Una dimensió no és un fet.** El tram de retard i el llindar són dimensions que classifiquen parades; el fet és el nombre de parades de cada tram.
 - **Les dues puntualitats mesuren fets diferents.** L'oficial compta trens al destí final; la ciutadana, parades. Es mostraran amb la seva definició i no es presentaran com una mateixa magnitud.
-- **Interpretació dels trams.** La correspondència exacta de les claus d'`avg_scores` amb els intervals de minuts s'ha deduït dels valors; la confirmaré amb l'autor de Puntual.cat abans de la segona part.
+- **Interpretació dels trams.** La correspondència exacta de les claus d'`avg_scores` amb els intervals de minuts es va deduir dels valors i l'autor de Puntual.cat la va confirmar per correu el 20 de novembre de 2026: els valors delimiten els trams.
 - **Atributs municipals.** Renda i població descriuen el municipi, no els viatgers de l'estació.
 
 ## 8. Fonts i referències
@@ -294,6 +295,7 @@ La columna **Estat** indica si la variable ja és a les taules que genera `scrip
 - [Idescat – Institut d'Estadística de Catalunya](https://www.idescat.cat/).
 - [Idescat – API «El municipi en xifres»](https://api.idescat.cat/emex/v1/nodes.json?tipus=mun&lang=ca). Consultat el 14 de novembre de 2026.
 - [ICGC – Geocodificador invers](https://eines.icgc.cat/geocodificador/invers?lat=41.379079&lon=2.140284&size=1). Consultat el 14 de novembre de 2026.
+- Comunicació personal amb l'autor de Puntual.cat, 20 de novembre de 2026: confirma la interpretació d'`avg_scores` i dóna el vistiplau a la reutilització de les dades de l'API.
 
 **Context**
 
